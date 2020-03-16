@@ -1,0 +1,67 @@
+﻿<Window x:Class="NotepadV2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotepadV2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="menuPanel" Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <ComboBox Grid.Column="0" Grid.Row="0" Margin="10,10,0,13" Name="File" Width="Auto" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Text="File">
+                    <ComboBoxItem IsSelected="True">
+                        <TextBlock Visibility="{Binding SelectedItem, ElementName=comboBox1}" IsHitTestVisible="False" Text="File">
+                        </TextBlock>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button>Open</Button>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button>Save</Button>
+                    </ComboBoxItem>
+                    <Separator/>
+                    <ComboBoxItem>
+                        <Button>Quit</Button>
+                    </ComboBoxItem>
+                </ComboBox>
+                
+                <ComboBox Grid.Column="1" Grid.Row="0" Margin="10,10,0,13" Name="About" Width="Auto" Height="Auto" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <ComboBoxItem IsSelected="True">
+                        <TextBlock Visibility="{Binding SelectedItem, ElementName=comboBox1}" IsHitTestVisible="False" Text="About">
+                        </TextBlock>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                         <Button>About my boss</Button>
+                    </ComboBoxItem>
+                    <Separator/>
+                    <ComboBoxItem>
+                            <Button>Help</Button>
+                        </ComboBoxItem>
+                </ComboBox>
+            </Grid>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <TextBox AcceptsReturn="True" Name="MainTextBox" TextAlignment="Left" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible">
+                Write your text here
+            </TextBox>
+        </Grid>
+    </Grid>
+    
+
+</Window>
